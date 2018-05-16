@@ -1,11 +1,8 @@
 #pragma once
 #include "Player.h"
 
-
-
 /*
-	This player scans the board looping on x then on y,
-	and plays on the first empty cell.
+	This player should win the XYPlayer and YXPlayer asstratagy
 */
 class Champion: public Player {
 public:
