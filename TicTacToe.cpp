@@ -42,18 +42,18 @@ void TicTacToe:: turn(Player& first, Player& second) {
 		}
     catch(...){
 			win = &second;
-			win.setChar(second.getChar());
+			win->setChar(second.getChar());
 		}
 		if (gameBoard[place]=='.') {
 			gameBoard[place] = first.getChar();
 		}
     else {
 			win = &second;
-			win.setChar(second.getChar());
+			win->setChar(second.getChar());
 		}
 		if (isWinner(place.getI(), place.getJ(),first.getChar())) {
 			win = &first;
-			win.setChar(first.getChar());
+			win->setChar(first.getChar());
 		}
 	}
 
