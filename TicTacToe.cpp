@@ -14,7 +14,7 @@ void TicTacToe:: play(Player& X, Player& O){
 			win=O;
 		}*/
 		if (win== nullptr) {
-			for (int i = 0; i < (maxbox+1)/2; i++) {
+			for (int i = 0; i < maxbox; i++) {
 				turn(X, O);
 				if (win) break;
 				turn(O, X);
