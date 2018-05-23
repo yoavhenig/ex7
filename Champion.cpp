@@ -2,10 +2,20 @@
 
 
 const Coordinate Champion::play(const Board& board) {
-	for (uint x=0; x<board.size(); ++x) {
-		for (uint y=0; y<board.size(); ++y) {
-			// A winning play
-		}
+
+	static Coordinate c{0, board.size()};
+	static Coordinate d{board.size(), 0};
+	 Coordinate zero{0,0};
+	 Coordinate zo{0,1};
+	 Coordinate oz{1,0};
+	size_t counter=0;
+	size_t count_down=board.size();
+	if (board[zero]=='.') return c;
+	if (board[zero]!='.' && board[oz]=='.' && board[zo]=='.') return c;
+	if (board[zero]!='.'){
+		Coordinate d{count_down, counter};
+		counter++;
+		count_down--;
 	}
-	return {0,0};
+	return d;
 }

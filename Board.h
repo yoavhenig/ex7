@@ -8,9 +8,10 @@
 using namespace std;
 
 class Board{
+
 private:
-  size_t size;
   Piece **board;
+    uint bsize;
 
 
 public:
@@ -25,9 +26,13 @@ Board& operator = (Board newb);
 
 Board& operator = (char c);
 
+uint size() const;
+
 friend std::ostream& operator<<(std::ostream& o, Board const& b);
 
-Piece& operator [] (const Coordinate& c);
+Piece& operator [] (const Coordinate& c) const;
+
+//char operator [] (const Coordinate&) const;
 
 }
 ;
