@@ -40,7 +40,7 @@ void TicTacToe:: turn(Player& first, Player& second) {
 		try{
 			place = first.play(gameBoard);
 		}
-    catch(/*need to add parameter*/...){
+    catch(Player *win){
 			win = &second;
 		}
 
