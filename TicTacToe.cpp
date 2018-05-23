@@ -21,7 +21,10 @@ void TicTacToe:: play(Player& X, Player& O){
 				if (win) break;
 			}
 		}
-		if (isTie(gameBoard)) win=&O;
+		if (isTie(gameBoard)){
+			win=&O;
+			win->setChar(O.getChar());
+		}
 
 };
 
@@ -44,15 +47,18 @@ void TicTacToe:: turn(Player& first, Player& second) {
 		}
     catch(...){
 			win = &second;
+			win->setChar(second.getChar());
 		}
 		if (gameBoard[place]=='.') {
 			gameBoard[place] = first.getChar();
 		}
     else {
 			win = &second;
+			win->setChar(second.getChar());
 		}
 		if (isWinner(place.getI(), place.getJ(),first.getChar())) {
 			win = &first;
+			win->setChar(first.getChar());
 		}
 	}
 
