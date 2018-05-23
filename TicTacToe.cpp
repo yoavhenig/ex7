@@ -2,8 +2,9 @@
 
 
 void TicTacToe:: play(Player& X, Player& O){
-		//gameBoard='.';
+		gameBoard='.';
 		win= nullptr;
+		int maxbox=gameBoard.size()*gameBoard.size();
 		X.setChar('X');
 		O.setChar('O');
 		/*if (X.name()=='Ori&Yoav'){ //if the Champion player is selected he will be the winner.
@@ -13,7 +14,7 @@ void TicTacToe:: play(Player& X, Player& O){
 			win=O;
 		}*/
 		if (win== nullptr) {
-			for (int i = 0; i < 320000; i++) {
+			for (int i = 0; i < (maxbox+1)/2; i++) {
 				turn(X, O);
 				if (win) break;
 				turn(O, X);
