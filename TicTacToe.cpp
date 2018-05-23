@@ -14,15 +14,13 @@ void TicTacToe:: play(Player& X, Player& O){
 			win=O;
 		}*/
 		if (win== nullptr) {
-			for (int i = 0; i < maxbox; i++) {
+			for (int i = 0; i < (maxbox+1)/2; i++) {
 				turn(X, O);
 				if (win) break;
 				turn(O, X);
 				if (win) break;
 			}
 		}
-		if (isTie(gameBoard)) win=&O;
-
 };
 
 const Board& TicTacToe::board()const{
@@ -44,15 +42,18 @@ void TicTacToe:: turn(Player& first, Player& second) {
 		}
     catch(...){
 			win = &second;
+			win.setChar(second.getChar());
 		}
 		if (gameBoard[place]=='.') {
 			gameBoard[place] = first.getChar();
 		}
     else {
 			win = &second;
+			win.setChar(second.getChar());
 		}
 		if (isWinner(place.getI(), place.getJ(),first.getChar())) {
 			win = &first;
+			win.setChar(first.getChar());
 		}
 	}
 
@@ -95,14 +96,4 @@ void TicTacToe:: turn(Player& first, Player& second) {
 	bool TicTacToe::isWinner(size_t i, size_t j, char c){
 		if(checkRow(i, c)||checkCol(j,c)||checkDiagnol_topleft(c)||checkDiagnol_topright(c)) return true;
 		else return false;
-	}
-
-	bool TicTacToe:: isTie(Board& board){
-		for(uint i=0; i<gameBoard.size(); i++){
-			for(uint j=0; j<gameBoard.size(); j++){
-				Coordinate c{i,j};
-				if(board[c]=='.') return false;
-			}
-		}
-		return true;
 	}
