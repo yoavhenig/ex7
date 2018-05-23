@@ -43,7 +43,8 @@ void TicTacToe:: turn(Player& first, Player& second) {
     Coordinate place;
 
 		try{
-			place = first.play(gameBoard);
+			Board secBoard = gameBoard;
+			place = first.play(secBoard);
 		}
     catch(...){
 			win = &second;
