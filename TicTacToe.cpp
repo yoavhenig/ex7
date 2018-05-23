@@ -21,6 +21,7 @@ void TicTacToe:: play(Player& X, Player& O){
 				if (win) break;
 			}
 		}
+	win=&O;
 };
 
 const Board& TicTacToe::board()const{
